@@ -11,6 +11,8 @@
 #include "../PV.h"
 
 #define BUFSIZE 1024
+#define BLOCKSIZE 128
+#define LENGTH 8
 #define MEM_KEY 33333
 #define MTX_KEY 3333
 #endif

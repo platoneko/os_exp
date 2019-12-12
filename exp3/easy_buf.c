@@ -68,9 +68,9 @@ int main(int argc, char *argv[]) {
     *left = BUFSIZE;
 
     if ((wrt_p = fork()) == 0) {
-        execv("./writebuf", &argv[1]);  // 从input文件读并写入buf
+        execv("./easy_writebuf", &argv[1]);  // 从input文件读并写入buf
     } else if ((read_p = fork()) == 0) {
-        execv("./readbuf", &argv[2]);  // 从buf读并写入output文件
+        execv("./easy_readbuf", &argv[2]);  // 从buf读并写入output文件
     }
 
     signal(SIGINT, sigint_handler);
