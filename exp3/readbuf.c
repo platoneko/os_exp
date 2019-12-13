@@ -79,13 +79,13 @@ int main(int argc, char *argv[]) {
     while (1) {
         P(used, 0);
         if (*read_n != BLOCKSIZE && (*head_p == *tail_p-1 || *head_p == *tail_p-1+LENGTH)) {  // EOF
-            printf("readbuf EOF\n");
             if (*read_n) { // EOF之前还有数据
                 block = shmat(block_shmid[*head_p], NULL, SHM_R);
                 V(left, 0);
                 write(fd, block->data, *read_n);
                 printf("readbuf: %d\n", *head_p);
             }
+            printf("readbuf EOF\n");
             fflush(stdout);
             close(fd);
             exit(0);
